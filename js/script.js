@@ -1,19 +1,118 @@
 // //node -- watch nomedoarquivo.js, toda mudança no código faz com que o node atualize o programa, então ele vai estar sempre compilando sem precisar ficar escrevendo no terminal
 
-const hello = () => console.log("Hello");
-hello(); //Hello
-//A função arrow não permite que funções sejam usadas no código antes da função ser definida, e não permite redefinição
-const dobro = (valor) => valor * 2;
-console.log(dobro(10));
-const triplo = (valor) => {
-    return valor * 3; //return obrigatório com uso de chaves
-};
-console.log(triplo(10));
-const ehPar = (n) => {
-    return n % 2 === 0;
-};
-//const ehPar = (n) => n % 2 === 0; //Funciona assim também
-console.log(ehPar(10));
+// function eAgora(){
+//     let cont = 1
+//     function f1(){
+//         console.log(cont)
+//     }
+//     cont++
+//     function f2(){
+//         console.log(cont)
+//     }
+//     cont++
+//     return {f1, f2}
+// }
+// let eAgoraResult = eAgora()
+// eAgoraResult.f1()
+// eAgoraResult.f2()
+
+// function saudacoesFactory(saudacao, nome){
+//     return function(){
+//         console.log(`${saudacao}, ${nome}`)
+//     }
+// }
+// let olaJoao = saudacoesFactory('Olá', 'João')
+// let tchauJoao = saudacoesFactory('Tchau', 'João')
+// olaJoao()
+// tchauJoao()
+
+// function ola(){
+//     let nome = 'João'
+//     return function(){
+//         console.log(`Olá, ${nome}`)
+//     }
+// }
+// let olaResult = ola()
+// olaResult()
+
+// function f(){
+//     let nome = 'João'
+//     function g(){
+//         console.log(nome)
+//     }
+//     g()
+// }
+// f() //João
+
+// /*uma função pode ser atribuída
+// a uma variável*/
+// let umaFuncao = function () {
+//     console.log ("Fui armazenada em uma variável");
+// }
+// //e pode ser chamada assim
+// umaFuncao()
+// /*f recebe uma função como parâmetro e, por isso
+//  é uma função de alta ordem.
+// Por devolver uma função, g também é de alta ordem.
+// */
+// function f (funcao) {
+//     //chamando a função 
+//     //note como a tipagem dinâmica tem seu preço 
+//     return funcao()    
+// }
+// function g () {
+//     function outraFuncao(){
+//         console.log("Fui criada por g");
+//         function a(){
+//             console.log("A");
+//             return () => console.log("B");
+//         }
+//         return a;
+//     }
+//     return outraFuncao;
+// }
+// //f pode ser chamada assim
+// f (function (){
+//     console.log ('Estou sendo passada para f')
+//     //return undefinded; se você não colocar um return, o javascript sempre vai retornar undefined de forma automática
+// })
+// //e g pode ser chamada assim
+// const gResult = g()
+// gResult()
+// //e assim também
+// g()()
+// // faça funcionar e exibir a letra a \/
+// g()()()
+// // faça funcionar e exibir a letra B, mantendo o resto
+// g()()()()
+// // outros testes
+// /* f chama g, que somente devolve uma função.
+// Nada é exibido.*/
+// f(g)
+// /*f chama a função devolvida por g.
+// "Fui criada por g" é exibido.*/
+// f(g())()
+// /*f tenta chamar o que a função criada por g
+// devolve. Ela não devolve coisa alguma. Por isso,
+// um erro - somente em tempo de execução - acontece. */
+// // f(g()())
+// //O que acontece? Erro
+// // f(1)
+
+// const hello = () => console.log("Hello");
+// hello(); //Hello
+// //A função arrow não permite que funções sejam usadas no código antes da função ser definida, e não permite redefinição
+// const dobro = (valor) => valor * 2;
+// console.log(dobro(10));
+// const triplo = (valor) => {
+//     return valor * 3; //return obrigatório com uso de chaves
+// };
+// console.log(triplo(10));
+// const ehPar = (n) => {
+//     return n % 2 === 0;
+// };
+// //const ehPar = (n) => n % 2 === 0; //Funciona assim também
+// console.log(ehPar(10));
     
 
 // const dobro = function (n) {
