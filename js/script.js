@@ -1,6 +1,81 @@
 //node --watch nomedoarquivo.js, toda mudança no código faz com que o node atualize o programa, então ele vai estar sempre compilando sem precisar ficar escrevendo no terminal
 
+// const fs = require('fs')
+// const abrirArquivo = function(nomeArquivo){
+//     const exibirConteudo = function(erro, conteudo){
+//         if(erro){
+//             console.log(`Deu erro: ${erro}`)
+//         }
+//         else{
+//             console.log(`Conteúdo: ${conteudo.toString()}`)
+//             const dobro = Number(conteudo.toString()) * 2
+//             const finalizar = function(erro){
+//                 if(erro){
+//                     console.log(`Erro tentando salvar arquivo: ${erro}`)
+//                 }
+//                 else{
+//                     console.log(`Conteúdo: ${dobro.toString()}`)
+//                     const triplo = +dobro.toString() * 3
+//                     const exibirTriplo = function(erro){
+//                         if(erro){
+//                             console.log(`Erro ao salvar arquivo: ${erro} `)
+//                         }
+//                         else{
+//                             console.log(`Salvou arquivo triplo com sucesso! Conteúdo: ${triplo}`)
+//                         }
+//                     }
+//                     fs.writeFile('triplo.txt', triplo.toString(), exibirTriplo)
+//                 }
+//             }
+//             fs.writeFile('dobro.txt', dobro.toString(), finalizar)
+//         }
+//     }
+//     fs.readFile(nomeArquivo, exibirConteudo)
+//     console.log('Continuando...')
+// }
+// abrirArquivo('arquivo.txt')
 
+// function demorada(tempo){
+//     console.log(`demorada: ${tempo}`)
+//     const atualMaisTempo = new Date().getTime() + tempo;
+//     while(new Date().getTime <= atualMaisTempo);
+//     const d = 8 + 4;
+//     return d;
+// }
+// const a = 2 + 5;
+// const b = 5 + 9;
+// //Essa acaba depois
+// setTimeout(() => {
+//     const d = demorada(2000);
+//     console.log(`demorada(2000) terminou: ${d}`);
+// }, 2000);
+// //Essa acaba mais rápido
+// setTimeout(() => {
+// const d = demorada(1000);
+// console.log(`demorada(1000) terminou: ${d}`);
+// }, 1000);
+// const e = 2 + a + b;
+// console.log(`e: ${e}`);
+
+// function demorada(){
+//     const atualMais2Segundos = new Date().getTime() + 2000;
+//     while(new Date().getTime <= atualMais2Segundos);
+//     const d = 8 + 4;
+//     return d;
+// }
+// const a = 2 + 5;
+// const b = 5 + 9;
+// const d = demorada();
+// const e = 2 + a + b;
+// console.log(e)
+
+// const a = 2 + 7;
+// const b = 5;
+// console.log(a + b);
+
+// console.log('Eu primeiro');
+// console.log('Eu agora...');
+// console.log('Sempre a última...');
 
 // let calculadora = {
 //     //pode ser arrow function
