@@ -29,6 +29,13 @@ app.post('/lembretes', async (req, res) => {
     });
     res.status(201).send(lembretes[contador]);
 })
+
+//Tratamento da comunicação com o barramento
+app.post("/eventos", (req, res) => {
+    console.log(req.body);
+    res.status(200).send({ msg: "ok" });
+});
+
 const port = 4000
 app.listen(port, () => {
     console.log(`Lembretes. Porta ${port}.`)
