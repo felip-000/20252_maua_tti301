@@ -1,4 +1,5 @@
-const express = require('express')
+const axios = require("axios");
+const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
@@ -13,12 +14,19 @@ app.get('/lembretes', (req, res) => {
 
 //para cadastrar como lembretes
 //POST /lembretes ("texto": "Fazer café")
-app.post('/lembretes', (req, res) => {
+app.post('/lembretes', async (req, res) => {
     contador++;
     const { texto } = req.body;
     lembretes[contador] = {
         contador, texto
-    }
+    };
+    await axios.post("http://localhost:10000/eventos", {
+        tipo: "LembreteCriado",
+        dados: {
+            contador,
+            texto,
+        },
+    });
     res.status(201).send(lembretes[contador]);
 })
 const port = 4000
