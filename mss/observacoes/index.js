@@ -6,7 +6,6 @@ const {v4: uuidv4} = require('uuid');
 const axios = require("axios");
 const observacoesPorLembreteId = {};
 
-
 //id é placeholder
 app.post('/lembretes/:id/observacoes', async (req,res) => {
     const idObs = uuidv4();
@@ -14,6 +13,9 @@ app.post('/lembretes/:id/observacoes', async (req,res) => {
     const observacoesDoLembrete = observacoesPorLembreteId[req.params.id] || [];
     observacoesDoLembrete.push({id: idObs, texto});
     observacoesPorLembreteId[req.params.id] = observacoesDoLembrete;
+
+
+
     await axios.post('http://localhost:10000/eventos', {
         tipo: "ObservacaoCriada",
         dados: {
