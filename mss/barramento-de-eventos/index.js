@@ -11,7 +11,9 @@ app.post('/eventos', (req, res) => {
     axios.post('http://localhost:5000/eventos', evento)
     //enviar pro mss de consulta
     axios.post('http://localhost:6000/eventos', evento)
-    req.statusCode(200).send({msg: 'ok'})
+    //enviar pro mss de classificação
+    axios.post("http://localhost:7000/eventos", evento);
+    req.status(200).send({msg: 'ok'})
 })
 const port = 10000
 app.listen(port, () => console.log(`Barramento. Porta ${port}.`))

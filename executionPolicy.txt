@@ -1,0 +1,2 @@
+Se o powershell encher o saco porque "a execução de scripts foi desabilitada nesse sistema", escreve isso na linha de comando:
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
