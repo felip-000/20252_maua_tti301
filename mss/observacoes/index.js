@@ -8,6 +8,7 @@ const observacoesPorLembreteId = {};
 
 const funcoes = {
     ObservacaoClassificada: (observacao) => {
+        const obervacoes = observacoesPorLembreteId[observacao.lembreteId];
         const obsParaAtualizar = observacoes.find(o => o.id === observacao.id)
         obsParaAtualizar.status = observacao.status;
         axios.post('http://localhost:10000/eventos', {

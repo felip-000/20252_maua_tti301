@@ -1,16 +1,25 @@
 const express = require("express");
+const axios = require("axios");
 const app = express();
 app.use(express.json());
 const palavraChave = "importante";
 
 const funcoes = {
+    LembreteCriado: (lembrete) => {
+        baseConsulta[lembrete.contador] = lembrete;
+    },
     observacaoCriada: (observacao) => {
         observacao.status = observacao.texto.includes(palavraChave) ? "importante" : "comum";
         axios.post("http://localhost:10000/eventos", {
             tipo: "ObservacaoClassificada",
             dados: observacao, 
         });
-    }
+    },
+    ObservacaoAtualizada: (observacao) => {
+        const observacoes = baseConsulta[observacao.lembreteId]["observacoes"];
+        const indice = observacoes.findIndex((o) => o.id === observacao.id);
+        observacoes[indice] = observacao;
+    },  
 }
 
 app.post("/eventos", (req, res) => {
@@ -20,6 +29,7 @@ app.post("/eventos", (req, res) => {
     res.status(200).send({ msg: "ok" });
 });
 
-app.listen(7000, () => {
-    console.log("Classificação rodando na porta 7000")
+const port = 7000;
+app.listen(port, () => {
+    console.log(`Classificação rodando na porta ${port}`);
 })
