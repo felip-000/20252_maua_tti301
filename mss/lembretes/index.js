@@ -32,7 +32,9 @@ app.post('/lembretes', async (req, res) => {
 
 //Tratamento da comunicação com o barramento
 app.post("/eventos", (req, res) => {
+    try{
     console.log(req.body);
+    } catch(err) {}
     res.status(200).send({ msg: "ok" });
 });
 
