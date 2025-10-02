@@ -8,7 +8,7 @@ const observacoesPorLembreteId = {};
 
 const funcoes = {
     ObservacaoClassificada: (observacao) => {
-        const obervacoes = observacoesPorLembreteId[observacao.lembreteId];
+        const observacoes = observacoesPorLembreteId[observacao.lembreteId];
         const obsParaAtualizar = observacoes.find(o => o.id === observacao.id)
         obsParaAtualizar.status = observacao.status;
         axios.post('http://localhost:10000/eventos', {
@@ -26,7 +26,7 @@ const funcoes = {
 //id é placeholder
 app.post('/lembretes/:id/observacoes', async (req,res) => {
     const idObs = uuidv4();
-    const texto = req.body;
+    const { texto } = req.body;
     const observacoesDoLembrete = observacoesPorLembreteId[req.params.id] || [];
     observacoesDoLembrete.push({id: idObs, texto, status: "Aguardando"});
     observacoesPorLembreteId[req.params.id] = observacoesDoLembrete;
