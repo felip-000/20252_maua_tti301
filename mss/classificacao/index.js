@@ -22,6 +22,13 @@ app.post("/eventos", (req, res) => {
 });
 
 const port = 7000;
-app.listen(port, () => {
+app.listen(port, async () => {
     console.log(`Classificação rodando na porta ${port}`);
+    const resp = await axios.get('http://localhost:10000/eventos')
+    resp.data.forEach((valor, indice, colecao) => {
+        try{
+            funcoes[valor.tipo](valor.dados)
+        }
+        catch(err){}
+    });
 })
