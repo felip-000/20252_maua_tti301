@@ -4,7 +4,8 @@ const app = express();
 app.use(express.json());
 
 app.get('/hey-docker', (req, res) => {
-    res.send("Hello Docker!");
+    // res.send("Hello Docker!");
+    res.status(200).json({mensagem: 'Hey, Docker!!!'})
 });
 
 const PORT = 5200;
