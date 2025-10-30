@@ -40,5 +40,7 @@ app.post("/eventos", (req, res) => {
 
 const port = 4000
 app.listen(port, () => {
-    console.log(`Lembretes. Porta ${port}.`)
+    console.log("Nova versão");
+    console.log("Agora usando o Docker Hub 2");
+    console.log(`Lembretes. Porta ${port}.`);
 })

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lembretes-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lembretes
+  template:
+    metadata:
+      labels:
+        app: lembretes
+    spec:
+      containers:
+      - name: lembretes
+        image: felpe000/lembretes
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: 1
