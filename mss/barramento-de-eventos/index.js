@@ -10,13 +10,13 @@ app.post('/eventos', (req, res) => {
     console.log(evento)
     eventos.push(evento)
     //enviar pro mss de lembretes
-    axios.post('http://localhost:4000/eventos', evento)
+    axios.post('http://lembretes-clusterip-service:4000/eventos', evento).catch((err) => {})
     //enviar pro mss de observacoes
-    axios.post('http://localhost:5000/eventos', evento)
+    axios.post('http://observacoes-clusterip-service:5000/eventos', evento).catch((err) => {})
     //enviar pro mss de consulta
-    axios.post('http://localhost:6000/eventos', evento)
+    axios.post('http://consulta-clusterip-service:6000/eventos', evento).catch((err) => {})
     //enviar pro mss de classificação
-    axios.post("http://localhost:7000/eventos", evento);
+    axios.post("http://classificacao-clusterip-service:7000/eventos", evento).catch((err) => {})
     res.status(200).send({msg: 'ok'})
 })
 
